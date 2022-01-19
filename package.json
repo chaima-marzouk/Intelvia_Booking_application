@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/chaima-marzouk/Intelvia_Booking_application/issues"
   },
-  "homepage": "https://github.com/chaima-marzouk/Intelvia_Booking_application#readme"
+  "homepage": "https://github.com/chaima-marzouk/Intelvia_Booking_application#readme",
+  "dependencies": {
+    "express": "^4.17.2",
+    "mongoose": "^6.1.7"
+  }
 }
