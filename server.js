@@ -1,5 +1,7 @@
 const express = require('express');
 const app = express();
+const hostname = "localhost"
+const PORT = process.PORT || 8000;
 require('./config/mongoose');
 require('dotenv/config');
 const {router} = require('./routes/user')
@@ -11,4 +13,4 @@ const {router} = require('./routes/user')
 
 app.use('/api/users',router)
 
-app.listen(3000, () => console.log("listen on port 3000"))
+app.listen(PORT, () => console.log(`Server running at http://${hostname}:${PORT}/`))
