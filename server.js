@@ -1,6 +1,12 @@
 const express = require('express');
 const app = express();
+require('./config/mongoose');
 const {router} = require('./routes/user')
+
+
+
+
+
 
 app.use('/api/users',router)
 
