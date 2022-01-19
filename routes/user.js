@@ -1,9 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const router = require('express').Router();
+// const router = express.Router();
 const Users = require('../controller/users')
 
-router.get('/register', (res,req) => {
-    res.send("you're on register page ")
+router.get('/test', (req,res) => {
+    res.send("test")
 })
 
-module.exports = router;
+
+module.exports = {
+    router
+};
