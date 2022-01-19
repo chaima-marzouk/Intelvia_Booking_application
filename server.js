@@ -1,8 +1,7 @@
 const express = require('express');
 const app = express();
+const router = require('./routes/user')
 
-app.get('/test', (req,res) => {
-    res.send("hello mf :)")
-})
+app.use('/api/users',router)
 
 app.listen(3000, () => console.log("listen on port 3000"))
