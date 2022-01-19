@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/chaima-marzouk/Intelvia_Booking_application#readme",
   "dependencies": {
+    "dotenv": "^14.2.0",
     "express": "^4.17.2",
     "mongoose": "^6.1.7"
   },
