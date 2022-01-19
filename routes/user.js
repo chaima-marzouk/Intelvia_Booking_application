@@ -6,14 +6,14 @@ router.get('/test', (req,res) => {
     res.send("test")
 })
 
-router.post('/register', async(req,res) =>{
+router.post('/register', (req,res) =>{
     const user = new Users({
         _id: mongoose.Types.ObjectId(),
         username: req.body.username,
         email: req.body.email,
         password: req.body.password  
-    })
-    const savedUser = await user.save();
+    }).save()
+    // const savedUser =  user.save();
     try{
         res.status(200).send({message: 'USER HAS BEEN REGESTRED :) !'})
     } catch(error){
