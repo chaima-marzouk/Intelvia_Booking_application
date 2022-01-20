@@ -1,27 +1,24 @@
 const router = require('express').Router();
-const mongoose = require('mongoose')
-const Users = require('../models/user')
+const User = require('../models/user')
 
-router.get('/test', (req,res) => {
-    res.send("test")
-})
 
-router.post('/register', (req,res) =>{
-    const user = new Users({
-        _id: mongoose.Types.ObjectId(),
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password  
-    }).save()
-    // const savedUser =  user.save();
+router.post('/register', async (req,res) =>{
+    
     try{
-        res.status(200).send({message: 'USER HAS BEEN REGESTRED :) !'})
+        const user = await User.create({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        })
+
+        res.status(201).json({ status: "success", user: user});
     } catch(error){
-        res.status(500).send(error)
+        res.status(404).json({
+            status: "error",
+            message: error
+        });
     }
 })
 
 
-module.exports = {
-    router
-};
+module.exports = router
