@@ -39,4 +39,14 @@ exports.login = async (req, res)=>{
     const {error} = registerValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
+    //check if email exist
+    const userr = await User.findOne({email:req.body.email})
+    if(!userr) return res.status(400).send({message: 'INVALID EMAIL'})
+
+    //Compare password
+    const isPasswordCorrect = await bcrypt.compare(req.body.password,userr.password)
+    if(!isPasswordCorrect){
+        return res.status(400).send({message :`INVALID PASSWORD`})
+    }
+
 }
