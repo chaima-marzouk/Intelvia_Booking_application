@@ -1,8 +1,11 @@
 const router = require('express').Router();
 const User = require('../models/user')
+const { registerValidation } = require('../validation');
 
 
 router.post('/register', async (req,res) =>{
+
+    //
     
     try{
         const user = await User.create({
