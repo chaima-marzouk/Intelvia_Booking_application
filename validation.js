@@ -6,6 +6,7 @@ const registerValidation = (data) =>{
                 .min(3),
         email : Joi.string()
                 .required()
+                .email()
                 .min(5),
         password : Joi.string()
                 .required()
