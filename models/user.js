@@ -7,14 +7,17 @@ const userSchema = new Schema({
     username: {
         type: String,
         required: true,
+        min: 3
     },
     email: {
         type: String,
         required: true,
+        min: 5
     },
     password: {
         type: String,
         required: true,
+        min: 3
     },
     created_at: {
         type: Date,

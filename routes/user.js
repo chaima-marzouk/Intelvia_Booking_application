@@ -5,22 +5,23 @@ const { registerValidation } = require('../validation');
 
 router.post('/register', async (req,res) =>{
 
-    //
+    //Data Validation 
+    res.send(registerValidation(req.body));
     
-    try{
-        const user = await User.create({
-            username: req.body.username,
-            email: req.body.email,
-            password: req.body.password
-        })
+    // try{
+    //     const user = await User.create({
+    //         username: req.body.username,
+    //         email: req.body.email,
+    //         password: req.body.password
+    //     })
 
-        res.status(201).json({ status: "success", user: user});
-    } catch(error){
-        res.status(404).json({
-            status: "error",
-            message: error
-        });
-    }
+    //     res.status(201).json({ status: "success", user: user});
+    // } catch(error){
+    //     res.status(404).json({
+    //         status: "error",
+    //         message: error
+    //     });
+    // }
 })
 
 

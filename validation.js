@@ -1,17 +1,17 @@
 const Joi = require('@hapi/joi');
 const registerValidation = (data) =>{
     const Schema = {
-        username = Joi.string()
+        username : Joi.string()
                 .required()
                 .min(3),
-        email = Joi.string()
+        email : Joi.string()
                 .required()
                 .min(5),
-        password = Joi.string()
+        password : Joi.string()
                 .required()
                 .min(3)
     };
-    return Joi.ValidationError(data,Schema);
+    return Joi.validate(data, Schema);
 };
 
 module.exports = {
