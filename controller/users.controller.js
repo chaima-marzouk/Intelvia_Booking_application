@@ -1,6 +1,8 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcryptjs');
-const { registerValidation,loginValidation } = require('../validation');
+const { registerValidation } = require('../validation');
+const { loginValidation } = require('../validation');
+const jwt = require('jsonwebtoken');
 
 
 exports.registeration =  async (req,res) =>{
@@ -36,7 +38,7 @@ exports.registeration =  async (req,res) =>{
 
 exports.login = async (req, res)=>{
     //Data Validation 
-    const {error} = registerValidation(req.body);
+    const {error} = loginValidation(req.body);
     if(error) return res.status(400).send(error.details[0].message);
 
     //check if email exist
@@ -51,5 +53,12 @@ exports.login = async (req, res)=>{
 
 
     //create token
+
+    const payload = {
+        username : userr.username,
+        role : "client"
+    }
+    const token = jwt.sign(payload, process.env.TOKEN_SECRET)
+    res.json({token: token})
 
 }

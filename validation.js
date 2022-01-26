@@ -16,7 +16,7 @@ const registerValidation = (data) =>{
 };
 const loginValidation = (data) =>{
     const Schema = {
-        
+
         email : Joi.string()
                 .required()
                 .email()
@@ -31,4 +31,5 @@ const loginValidation = (data) =>{
 module.exports = {
     registerValidation,
     loginValidation
+    
 }
