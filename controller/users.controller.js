@@ -1,6 +1,6 @@
 const User = require('../models/user.model');
 const bcrypt = require('bcryptjs');
-const { registerValidation } = require('../validation');
+const { registerValidation,loginValidation } = require('../validation');
 
 
 exports.registeration =  async (req,res) =>{
@@ -32,4 +32,11 @@ exports.registeration =  async (req,res) =>{
             message: error
         });
     }
+}
+
+exports.login = async (req, res)=>{
+    //Data Validation 
+    const {error} = registerValidation(req.body);
+    if(error) return res.status(400).send(error.details[0].message);
+
 }

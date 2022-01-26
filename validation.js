@@ -14,7 +14,21 @@ const registerValidation = (data) =>{
     };
     return Joi.validate(data, Schema);
 };
+const loginValidation = (data) =>{
+    const Schema = {
+        
+        email : Joi.string()
+                .required()
+                .email()
+                .min(5),
+        password : Joi.string()
+                .required()
+                .min(3)
+    };
+    return Joi.validate(data, Schema);
+};
 
 module.exports = {
-    registerValidation
+    registerValidation,
+    loginValidation
 }

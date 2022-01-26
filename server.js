@@ -1,6 +1,4 @@
-const bodyParser = require('body-parser')
 const express = require('express');
-// const mongoose = require('mongoose')
 const router = require('./routes/user')
 const app = express();
 const hostname = "localhost";
